@@ -8,6 +8,17 @@
         label {
             cursor: pointer;
         }
+
+        button {
+            background: lightsteelblue;
+        }
+
+        .big-number {
+            background: steelblue;
+            color: white;
+            font-family: fantasy;
+        }
+
     </style>
 </head>
 <body>
@@ -16,20 +27,20 @@
 
         <p>
             <label>
-                Name:
-                <input id="name">
+                Number:
+                <input type="number" id="number">
             </label>
         </p>
 
         <p>
             <label>
-                <input name="power" type="radio"> Square
+                <input name="power" type="radio" value="2"> Square
             </label>
             <label>
-                <input name="power" type="radio"> Cube
+                <input name="power" type="radio" value="3"> Cube
             </label>
             <label>
-                <input name="power" type="radio"> Quadratic
+                <input name="power" type="radio" value="4"> Quadratic
             </label>
         </p>
 
@@ -37,20 +48,34 @@
             <button onclick="showName()">click me</button>
         </p>
 
-        <p id="result"></p>
+        <p id="result">test me</p>
     </main>
 
     <script>
 
         function showName() {
-            var input = document.getElementById('name');
-            var name = input.value;
+            var input = document.getElementById('number');
+            var number = input.value;
 
-            var p = document.getElementById('result');
-            p.innerText = 'Your name is ' + name;
-            if(name === 'marty') {
-                p.style.backgroundColor = 'steelblue';
+            if(isNaN(number)) {
+                alert('please input a number!');
             }
+            else {
+                var radio = document.querySelector('input[name=power]:checked');
+                // console.log(radio.value);
+
+                var p = document.getElementById('result');
+                p.innerHTML = 'Your number is <strong>' + number + '</strong>';
+
+                var background;
+                if(number > 25) {
+                    p.classList.add('big-number');
+                }
+                else {
+                    p.classList.remove('big-number');
+                }   
+            }
+
         }
 
         function count() {
