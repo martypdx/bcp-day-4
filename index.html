@@ -60,37 +60,21 @@
         function calc() {
             var p = document.getElementById('result');
             var input = document.getElementById('number');
+            var radio = document.querySelector('input[name=power]:checked');
+            
             var number = input.value;
+            var power = radio.value;
+            var result = number ** power;
+            
+            p.innerHTML = number + ' to the ' + power + ' is <strong>' + result + '</strong>';
 
-            if(!number || isNaN(number)) {
-                p.innerText = 'Please input a number!';
-                p.classList.remove('big-number');
-                p.classList.add('error');
+            if(result > 2500) {
+                p.classList.add('big-number');
             }
             else {
-                var radio = document.querySelector('input[name=power]:checked');
-                
-                if(radio === null) {
-                    p.innerText = 'Please select a power';
-                    p.classList.remove('big-number');
-                    p.classList.add('error');
-                }
-                else {
-                    p.innerHTML = 'Your number is <strong>' + number + '</strong>';
-
-                    p.classList.remove('error');
-
-                    var background;
-                    if(number > 25) {
-                        p.classList.add('big-number');
-                    }
-                    else {
-                        p.classList.remove('big-number');
-                    }   
-                }
-
-            }
-
+                p.classList.remove('big-number');
+            }   
+            
         }
 
     </script>
