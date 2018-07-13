@@ -36,6 +36,8 @@
         <p>
             <button onclick="showName()">click me</button>
         </p>
+
+        <p id="result"></p>
     </main>
 
     <script>
@@ -43,7 +45,12 @@
         function showName() {
             var input = document.getElementById('name');
             var name = input.value;
-            console.log(name);
+
+            var p = document.getElementById('result');
+            p.innerText = 'Your name is ' + name;
+            if(name === 'marty') {
+                p.style.backgroundColor = 'steelblue';
+            }
         }
 
         function count() {
