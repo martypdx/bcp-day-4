@@ -26,27 +26,26 @@
         </p>
 
         <p>
-            <textarea>default content</textarea>
+            <input onkeypress="change()">
         </p>
 
         <p>
-            <select>
-                <option>red</option>
-                <option>blue</option>
-                <option>green</option>
-            </select>
-        </p>
-
-        <p>
-            <button>click me</button>
+            <button onclick="count()">click me</button>
         </p>
     </main>
 
     <script>
-        
-        for(var i = 0; i < 20; i++) {
-            console.log(i + 1);
+
+        function count() {
+            for(var i = 0; i < 10; i++) {
+                console.log(i + 1);
+            }
         }
+
+        function change() {
+            console.log('a change happened!');
+        }
+
     </script>
 
 </body>
