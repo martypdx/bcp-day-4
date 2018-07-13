@@ -19,12 +19,16 @@
             font-family: fantasy;
         }
 
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 <body>
     <h1>Just an App</h1>
     <main>
-
         <p>
             <label>
                 Number:
@@ -48,40 +52,45 @@
             <button onclick="calc()">click me</button>
         </p>
 
-        <p id="result">test me</p>
+        <p id="result">Enter a number and a power to begin!</p>
     </main>
 
     <script>
 
         function calc() {
+            var p = document.getElementById('result');
             var input = document.getElementById('number');
             var number = input.value;
 
-            if(isNaN(number)) {
-                alert('please input a number!');
+            if(!number || isNaN(number)) {
+                p.innerText = 'Please input a number!';
+                p.classList.remove('big-number');
+                p.classList.add('error');
             }
             else {
                 var radio = document.querySelector('input[name=power]:checked');
-                // console.log(radio.value);
-
-                var p = document.getElementById('result');
-                p.innerHTML = 'Your number is <strong>' + number + '</strong>';
-
-                var background;
-                if(number > 25) {
-                    p.classList.add('big-number');
+                
+                if(radio === null) {
+                    p.innerText = 'Please select a power';
+                    p.classList.remove('big-number');
+                    p.classList.add('error');
                 }
                 else {
-                    p.classList.remove('big-number');
-                }   
+                    p.innerHTML = 'Your number is <strong>' + number + '</strong>';
+
+                    p.classList.remove('error');
+
+                    var background;
+                    if(number > 25) {
+                        p.classList.add('big-number');
+                    }
+                    else {
+                        p.classList.remove('big-number');
+                    }   
+                }
+
             }
 
-        }
-
-        function count() {
-            for(var i = 0; i < 10; i++) {
-                console.log(i + 1);
-            }
         }
 
     </script>
