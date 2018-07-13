@@ -13,6 +13,7 @@
             background: lightsteelblue;
         }
 
+
         .big-number {
             background: steelblue;
             color: white;
@@ -58,20 +59,28 @@
     <script>
 
         function calc() {
+            // get a handle to the dom elements we need to read or change
             var p = document.getElementById('result');
             var input = document.getElementById('number');
             var radio = document.querySelector('input[name=power]:checked');
             
+            // get the value out of the input and the radio button
             var number = input.value;
             var power = radio.value;
+
+            // calculate the result
             var result = number ** power;
             
+            // write the results back into the p element
             p.innerHTML = number + ' to the ' + power + ' is <strong>' + result + '</strong>';
 
+            // add or remove a class based on how big the result is:
             if(result > 2500) {
+                // add the class (but leave any other classes)
                 p.classList.add('big-number');
             }
             else {
+                // remove it (but leave any other classes)
                 p.classList.remove('big-number');
             }   
             
