@@ -13,6 +13,14 @@
 <body>
     <h1>Just an App</h1>
     <main>
+
+        <p>
+            <label>
+                Name:
+                <input id="name">
+            </label>
+        </p>
+
         <p>
             <label>
                 <input name="power" type="radio"> Square
@@ -26,24 +34,22 @@
         </p>
 
         <p>
-            <input onkeypress="change()">
-        </p>
-
-        <p>
-            <button onclick="count()">click me</button>
+            <button onclick="showName()">click me</button>
         </p>
     </main>
 
     <script>
 
+        function showName() {
+            var input = document.getElementById('name');
+            var name = input.value;
+            console.log(name);
+        }
+
         function count() {
             for(var i = 0; i < 10; i++) {
                 console.log(i + 1);
             }
-        }
-
-        function change() {
-            console.log('a change happened!');
         }
 
     </script>
