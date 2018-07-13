@@ -1,3 +1,3 @@
 # BCP Day 4
 
-JS, HTML and CSS FTW!
+JavaScript, HTML and CSS FTW!
